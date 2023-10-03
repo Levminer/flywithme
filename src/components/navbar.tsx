@@ -1,4 +1,6 @@
-export const Header = () => {
+import { Link } from "react-router-dom"
+
+const Header = () => {
 	return (
 		<header className="text-black bg-gray-300 rounded-xl body-font">
 			<div className="container mx-auto flex flex-wrap p-3 flex-col md:flex-row items-center">
@@ -7,10 +9,16 @@ export const Header = () => {
 					<span className="text-xl">FlyWithMe</span>
 				</a>
 				<nav className="md:ml-auto text-xl md:mr-auto flex flex-wrap items-center justify-center">
-					<a className="mr-5 hover:text-gray-900">Kezdőlap</a>
-					<a className="mr-5 hover:text-gray-900">Járatok</a>
+					<Link className="mr-5 hover:text-gray-900" to={"/"}>
+						Kezdőlap
+					</Link>
+					<Link className="mr-5 hover:text-gray-900" to={"/flights"}>
+						Járatok
+					</Link>
 				</nav>
 			</div>
 		</header>
 	)
 }
+
+export default Header
