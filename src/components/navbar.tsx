@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 
 const Header = () => {
 	return (
@@ -9,12 +9,15 @@ const Header = () => {
 					<span className="text-xl">FlyWithMe</span>
 				</a>
 				<nav className="md:ml-auto text-xl md:mr-auto flex flex-wrap items-center justify-center">
-					<Link className="mr-5 hover:text-gray-900" to={"/"}>
+					<NavLink className={({ isActive }) => (isActive ? "mr-5 hover:text-gray-90 text-blue-600" : "mr-5 hover:text-gray-900")} to={"/"}>
 						Kezdőlap
-					</Link>
-					<Link className="mr-5 hover:text-gray-900" to={"/flights"}>
+					</NavLink>
+					<NavLink
+						className={({ isActive }) => (isActive ? "mr-5 hover:text-gray-90 text-blue-600" : "mr-5 hover:text-gray-900")}
+						to={"/flights"}
+					>
 						Járatok
-					</Link>
+					</NavLink>
 				</nav>
 			</div>
 		</header>

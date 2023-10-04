@@ -3,20 +3,20 @@ const Index = () => {
 		<div>
 			<div id="demo" className="carousel slide" data-bs-ride="carousel">
 				<div className="carousel-indicators">
-					<button type="button" data-bs-target="#demo" data-bs-slide-to="0"></button>
+					<button type="button" data-bs-target="#demo" data-bs-slide-to="0" className="active"></button>
 					<button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-					<button type="button" data-bs-target="#demo" data-bs-slide-to="2" className="active"></button>
+					<button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
 				</div>
 
 				<div className="carousel-inner rounded-xl my-10">
 					<div className="carousel-item active">
+						<img src="repterlevegobol.jpg" alt="Budapesi Repülőtér a Levegőből" className="d-block w-full" />
+					</div>
+					<div className="carousel-item">
 						<img src="R.png" alt="Budapesti Nemzetközi Repülőtér" className="d-block w-full" />
 					</div>
 					<div className="carousel-item">
 						<img src="profszerk.jpg" alt="A készítők" className="d-block w-full" />
-					</div>
-					<div className="carousel-item">
-						<img src="repterlevegobol.jpg" alt="Budapesi Repülőtér a Levegőből" className="d-block w-full" />
 					</div>
 				</div>
 
@@ -40,7 +40,9 @@ const Index = () => {
 					</div>
 					<div className="col-sm">
 						<p className="font-bold text-2xl">Az oldalról:</p>
-						<p>Az oldalon élőben tudja követni a Budapestről induló / érkező járatokat, és adatokat tud megtudni róla az adatbázisunkból!</p>
+						<p>
+							Az oldalon élőben tudja követni a Budapestről induló / érkező járatokat, és adatokat tud megtudni róla az adatbázisunkból!
+						</p>
 					</div>
 				</div>
 			</div>
