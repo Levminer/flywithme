@@ -16,7 +16,7 @@ const Index = () => {
 						<img src="R.png" alt="Budapesti Nemzetközi Repülőtér" className="d-block w-full" />
 					</div>
 					<div className="carousel-item">
-						<img src="profszerk.jpg" alt="A készítők" className="d-block w-full" />
+						<img src="repulo.jpg" alt="A készítők" className="d-block w-full" />
 					</div>
 				</div>
 
@@ -34,7 +34,7 @@ const Index = () => {
 					<div className="col-sm">
 						<p className="font-bold text-2xl">Készítőkről:</p>
 						<p className="text-justify">
-							Az oldalt Deák "Projekt Manager"Máté és társa Lőrik alias a legjobb programozó Levente készítette! Jelenleg 13.as végzős
+							Az oldalt Deák "Projekt Manager" Máté és társa Lőrik alias a legjobb programozó Levente készítette! Jelenleg 13.-as végzős
 							technikusi osztályban tanulunk és ez a projekt a vizsgaremek HTML része!
 						</p>
 					</div>
