@@ -1,46 +1,27 @@
-import enquiries
-import os
-import mysql.connector
-
-db = mysql.connector.connect(
-    host="192.168.105.17",
-    user="root",
-    password="12345678",
-    database="repulok"
-)
-
-mycursor = db.cursor()
-
-mycursor.execute("SELECT * FROM repulo")
-
-myresult = mycursor.fetchall()
-
-for x in myresult:
-  print(x)
-
-def clear():
-    os.system("clear")
-    input("Nyomj entert a folytatáshoz...")
+import inquirer
 
 
 def menu():
-    options = ["Adatok", "Hozzáadás", "Módosítás", "Törlés", "Kilépés"]
+    # menu
+    questions = [
+        inquirer.List(
+            "menu",
+            message="Válassze opciót",
+            choices=["Adatok", "Hozzáadás", "Módosítás", "Törlés", "Kilépés"],
+        ),
+    ]
+    answers = inquirer.prompt(questions)
 
-    selected = enquiries.choose("Válassz egy menüpontot: ", options)
-
-    print("FlyWithMe\n")
-
-    match selected:
+    # összes opció
+    match answers.get("menu"):
         case "Adatok":
             adatok()
-
-            input("Nyomj entert a folytatáshoz...")
-            menu()
 
         case "Kilépés":
             exit()
 
 
+# adatok menu
 def adatok():
     print("Adatok")
 
