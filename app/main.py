@@ -1,9 +1,11 @@
+from re import X
 import inquirer
 import mysql.connector
 from tabulate import tabulate
 import pwinput
 from passlib.hash import argon2
 
+tomb = []
 ok = False
 prob=0
 encrypted_pass = "$argon2id$v=19$m=65536,t=3,p=4$9Z5zztkbA4AQgvBeS6k1Bg$MVvROeZxRYhjBeSktrUjkDKvdSMCraI9MgfPGo4Bytk"
@@ -67,7 +69,6 @@ def adatok():
 
     header =["ID", "Repülő Gyártója","Típusa", "Maximum Sebessége", "Férőhely", "Maximum Távolság", "Gyártás kezdete"]
 
-    tomb = []
     for x in myresult:
         adat = {}
         adat['id'] = x[0]
@@ -84,7 +85,15 @@ def adatok():
     mydb.commit()
 
 def hozzad():
-    print("Adatok")
+    adatok()
+    repulonev = input("\nMi a repülő neve?(pl: Airbus)")
+    repulotipus = int(input("\nMi a repülő típusa?(pl: 737)"))
+    maxseb = int(input("\nMi a repülő max sebessége?"))
+    kapacitas = int(input("\nMi a repülő kapacitása?"))
+    maxtav = int(input("\nMi a repülő maximum távolsága?(pl: 16500)"))
+    gyartaskezdet = int(input("\nMi a repülő első gyártási időpontja (év)?"))
+    mycursor=mydb.cursor()
+    mycursor.execute("INSERT INTO repulo (repulonev, repulotipus, maxseb, kapacitas, maxtav, gyartaskezdet) VALUES (%s,%s,%s,%s,%s,%s)", (repulonev,repulotipus,maxseb,kapacitas,maxtav,gyartaskezdet))
 
 def modosit():
     print("Adatok")
@@ -92,7 +101,14 @@ def modosit():
 def torol():
     adatok()
     terel = int(input("\nMelyik ID-t szeretné törölni? "))
-    print("Törlés")
+    while tomb[-1][0] < terel:
+        print("Nincs ilyen ID, irjon be másikat!")
+        terel = int(input("\nMelyik ID-t szeretné törölni? "))
+    else:
+        print("Törlés...")
+        mycursor=mydb.cursor()
+        mycursor.execute("DELETE FROM repulo where id=%s", (terel,))
+
 
 #fusson az idők végezetéig
 while True:
