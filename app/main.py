@@ -63,6 +63,7 @@ def menu():
 
 # adatok menu
 def adatok():
+    tomb.clear()
     mycursor=mydb.cursor()
     mycursor.execute("SELECT * from repulo")
     myresult=mycursor.fetchall()
@@ -96,7 +97,39 @@ def hozzad():
     mycursor.execute("INSERT INTO repulo (repulonev, repulotipus, maxseb, kapacitas, maxtav, gyartaskezdet) VALUES (%s,%s,%s,%s,%s,%s)", (repulonev,repulotipus,maxseb,kapacitas,maxtav,gyartaskezdet))
 
 def modosit():
-    print("Adatok")
+    adatok()
+    terel = int(input("\nMit szeretne módosítani?"))
+    while tomb[-1][0] < terel:
+        print("Nincs ilyen sor, válasszon másikat!")
+        terel = int(input("\nMelyik sort szeretné módosítani?"))
+    else:
+        kveszcsönsz = [inquirer.Checkbox("menu",message="Melyik adatok szeretné módosítani?",choices=["repulonev","repulotipus","maxseb","kapacitas","maxtav","gyartaskezdet"])]
+        valasz = inquirer.prompt(kveszcsönsz)
+        adats = valasz["menu"]
+        mycursor=mydb.cursor()
+        if "repulonev" in adats:
+            uj = input("Adja meg az új repülő nevét! ")
+            mycursor.execute("UPDATE repulo SET repulonev=%s WHERE id=%s",(uj,terel))
+        if "repulotipus" in adats:
+            uj = input("Adja meg az új repülő típusát! ")
+            mycursor.execute("UPDATE repulo SET repulotipus=%s WHERE id=%s",(uj,terel))
+        if "maxseb" in adats:
+            uj = input("Adja meg az új maximum sebességet! ")
+            mycursor.execute("UPDATE repulo SET maxseb=%s WHERE id=%s",(uj,terel))
+        if "kapacitas" in adats:
+            uj = input("Adja meg az új kapacitást! ")
+            mycursor.execute("UPDATE repulo SET kapacitas=%s WHERE id=%s",(uj,terel))
+        if "maxtav" in adats:
+            uj = input("Adja meg az új maximum távolságát! ")
+            mycursor.execute("UPDATE repulo SET maxtav=%s WHERE id=%s",(uj,terel))
+        if "gyartaskezdet" in adats:
+            uj = input("Adja meg az új repülő gyártásának kezdetét! ")
+            mycursor.execute("UPDATE repulo SET gyartaskezdet=%s WHERE id=%s",(uj,terel))
+        print("A módosítás megtörtént!")
+      
+    
+    
+
 
 def torol():
     adatok()
