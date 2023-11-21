@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: localhost
--- Létrehozás ideje: 2023. Okt 18. 12:06
+-- Létrehozás ideje: 2023. Nov 21. 11:45
 -- Kiszolgáló verziója: 5.7.17-log
 -- PHP verzió: 5.6.30
 
@@ -41,21 +41,20 @@ CREATE TABLE `repulo` (
 --
 
 INSERT INTO `repulo` (`id`, `repulonev`, `repulotipus`, `maxseb`, `kapacitas`, `maxtav`, `gyartaskezdet`) VALUES
-(0, 'Boeing', '737', 908, 141, 6300, 1966),
-(1, 'Boeing', '787', 945, 330, 15750, 2007),
-(2, 'Boeing', '777', 950, 550, 11120, 1994),
-(3, 'Boeing', '747', 930, 605, 14320, 1970),
-(4, 'Boeing', '757', 850, 239, 7222, 1981),
-(5, 'Boeing', '717', 822, 117, 3820, 1997),
-(6, 'Boeing', '767', 851, 269, 12200, 1981),
-(7, 'Airbus', 'A220', 871, 121, 6390, 2012),
-(8, 'Airbus', 'A310', 892, 220, 9540, 1981),
-(9, 'Airbus', 'A320', 829, 136, 5700, 1987),
-(10, 'Airbus', 'A321', 871, 230, 6100, 1993),
-(11, 'Airbus', 'A330', 871, 406, 11760, 1992),
-(12, 'Airbus', 'A340', 914, 420, 16670, 1991),
-(13, 'Airbus', 'A350', 950, 440, 16100, 2011),
-(14, 'Airbus', 'A350', 903, 853, 14800, 2003);
+(1, 'Boeing', '737', 908, 141, 6300, 1966),
+(2, 'Boeing', '787', 945, 330, 15750, 2007),
+(3, 'Boeing', '777', 950, 550, 11120, 1994),
+(4, 'Boeing', '747', 930, 605, 14320, 1970),
+(5, 'Boeing', '757', 850, 239, 7222, 1981),
+(6, 'Boeing', '717', 822, 117, 3820, 1997),
+(7, 'Boeing', '767', 851, 269, 12200, 1981),
+(8, 'Airbus', 'A220', 871, 121, 6390, 2012),
+(9, 'Airbus', 'A310', 892, 220, 9540, 1981),
+(10, 'Airbus', 'A320', 829, 136, 5700, 1987),
+(11, 'Airbus', 'A321', 871, 230, 6100, 1993),
+(12, 'Airbus', 'A330', 871, 406, 11760, 1992),
+(13, 'Airbus', 'A340', 914, 420, 16670, 1991),
+(14, 'Airbus', 'A350', 950, 440, 16100, 2011);
 
 --
 -- Indexek a kiírt táblákhoz
@@ -67,6 +66,15 @@ INSERT INTO `repulo` (`id`, `repulonev`, `repulotipus`, `maxseb`, `kapacitas`, `
 ALTER TABLE `repulo`
   ADD PRIMARY KEY (`id`);
 
+--
+-- A kiírt táblák AUTO_INCREMENT értéke
+--
+
+--
+-- AUTO_INCREMENT a táblához `repulo`
+--
+ALTER TABLE `repulo`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
