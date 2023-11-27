@@ -98,7 +98,7 @@ def hozzad():
 
 def modosit():
     adatok()
-    terel = int(input("\nMit szeretne módosítani?"))
+    terel = int(input("\nMelyik ID-t szeretné módosítani?"))
     while tomb[-1][0] < terel:
         print("Nincs ilyen sor, válasszon másikat!")
         terel = int(input("\nMelyik sort szeretné módosítani?"))
