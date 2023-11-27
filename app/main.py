@@ -1,9 +1,9 @@
-from re import X
 import inquirer
 import mysql.connector
 from tabulate import tabulate
 import pwinput
 from passlib.hash import argon2
+import art
 
 tomb = []
 ok = False
@@ -11,6 +11,10 @@ prob=0
 encrypted_pass = "$argon2id$v=19$m=65536,t=3,p=4$9Z5zztkbA4AQgvBeS6k1Bg$MVvROeZxRYhjBeSktrUjkDKvdSMCraI9MgfPGo4Bytk"
 password_input = pwinput.pwinput(prompt="Adja meg az adatbázis jelszavát: ")
 hash=argon2.hash(password_input)
+
+art.tprint("FlyWithMe")
+
+input("Nyomjon meg egy gombot a folytatáshoz...")
 
 # jelszó ellenőrzése
 while not ok:
